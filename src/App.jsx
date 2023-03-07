@@ -5,6 +5,7 @@ import ChangePassword from "./components/LoginPage/ChangePassword";
 import CreateUser from "./components/LoginPage/CreateUser";
 import LoginPage from "./components/LoginPage/loginPage";
 import ContextProvider from "./Context/context";
+import CarShoppingPage from "./components/CarShoppingPage/carShoppingPage"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/createUser" element={<CreateUser />} />
           <Route path="/changePassword" element={<ChangePassword />} />
+          <Route path="/car" element={<CarShoppingPage />} />
         </Routes>
       </ContextProvider>
     </BrowserRouter>
