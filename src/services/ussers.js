@@ -1,9 +1,9 @@
 import axios from "axios";
 import endpoints from "./endpoints";
 
-export const getUsser = async () => {
+export const getUser = async () => {
     try {
-        const { data } = await axios.get(`${endpoints.ussers}`)
+        const { data } = await axios.get(endpoints.ussers);
         return data
     } catch (error) {
         console.log(error);
@@ -11,9 +11,9 @@ export const getUsser = async () => {
     }
 }
 
-export const postUsser = async (obj) => {
+export const postUser = async (obj) => {
     try {
-        const { data } = await axios.post(`${endpoints.ussers}`, obj)
+        const { data } = await axios.post(endpoints.ussers, obj)
         return data
     } catch (error) {
         console.log(error);
