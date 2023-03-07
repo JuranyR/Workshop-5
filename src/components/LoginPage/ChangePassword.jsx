@@ -3,12 +3,12 @@ import { useForm } from "react-hook-form";
 import logo from "../../images/icon-pizza.png";
 import user from "../../images/icon-user.svg";
 import lock from "../../images/icon-lock.svg";
-import { getLoginUsser, getUssers } from "../../services/ussers";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { getUssers } from "../../services/ussers";
+import { patchUsser } from "../../services/ussers";
+import Swal from "sweetalert2";
 
-const LoginPage = () => {
-  const navigate = useNavigate();
+const ChangePassword = () => {
   //////////////////////USE FORM
   const {
     register,
@@ -16,37 +16,30 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm();
 
+  /////////////FUNCIÓN PARA ENVIAR FORMULARIO
+  const onSubmit = async (data) => {
+    const usersLogin = await getUssers();
+    /////////////FILTRO PARA BUSCAR EL OBJETO USUARIO CON EL USER
+    const user = usersLogin.filter(
+      (uniqueUser) => uniqueUser.usser === data.usser
+    );
+    if (user.length) {
+      patchUsser(user);
+      console.log(data);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Este usuario no existe!",
+      });
+    }
+  };
+
   ///////////////////ERROR USUARIO NO ENCONTRADO
   const [errorUserNoFound, setErrorUserNoFound] = useState({
     status: false,
     message: "",
   });
-  ///////////////////FUNCIÓN PARA ENVIAR FORMULARIO
-  const onSubmit = async (data) => {
-    // console.log(data);
-    const responseLogin = await getLoginUsser(data.usser, data.password);
-    if (!responseLogin.length) {
-      setErrorUserNoFound({
-        status: true,
-        message: "Usuario o contraseña incorrectos!",
-      });
-    } else {
-      console.log(responseLogin);
-      navigate("/");
-    }
-  };
-
-  //////////////////FUNCIÓN PARA OBTENER LOS USUARIOS DE LA API
-  const getData = async () => {
-    const response = await getUssers();
-    console.log(response);
-  };
-
-  ///////////////////LLAMAR LA FUNCIÓN QUE OBTIENE LOS USUARIOS
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
     <main className="main-form">
       <aside className="logo-container">
@@ -56,7 +49,7 @@ const LoginPage = () => {
         <h1 className="logo-container__title">PiSassScript</h1>
       </aside>
       <section className="form-container">
-        <h2 className="form-container__title">Inicia sesión en tu cuenta</h2>
+        <h2 className="form-container__title">Restaura tu contraseña</h2>
         <p className="form-container__text">
           Disfruta de la mejor pizza creada para las personas amantes del
           Código.
@@ -73,7 +66,7 @@ const LoginPage = () => {
             <input
               className="input-container__input"
               type="text"
-              placeholder="Usuario"
+              placeholder="Ingresa tu usuario"
               {...register("usser", {
                 required: true,
               })}
@@ -89,7 +82,7 @@ const LoginPage = () => {
             <input
               className="input-container__input"
               type="password"
-              placeholder="Contraseña"
+              placeholder="Ingresa tu nueva contraseña"
               {...register("password", {
                 required: true,
               })}
@@ -99,7 +92,7 @@ const LoginPage = () => {
             <p className="error">Este campo es obligatorio!</p>
           )}
           <button className="submit-button" type="submit">
-            Iniciar sesión
+            Restaurar contraseña
           </button>
           {errorUserNoFound.status ? (
             <p className="error-no-found ">{errorUserNoFound.message}</p>
@@ -110,9 +103,6 @@ const LoginPage = () => {
         {/* ////////////////////////////////////////////////////////// */}
 
         <footer className="footer-form">
-          <Link to="/changePassword" className="restablecer-container__link">
-            Restablecer contraseña
-          </Link>
           <div className="register-container">
             <p className="register-container__text">¿No tienes una cuenta?</p>
             <Link to="/createUser" className="register-container__link">
@@ -125,4 +115,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default ChangePassword;
