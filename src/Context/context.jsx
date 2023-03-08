@@ -2,15 +2,17 @@ import React, { createContext } from "react";
 
 export const Context = createContext({})
 
-const ContextProvider = (props) => { 
-    const pizzas =[
-        {id:1, name:'peperomi', price: 3200,},
-        {id:2, name: 'hawaiana', price: 6200},
-        {id:3, name: 'carnes', price: 4500},
-    ]
+const ContextProvider = (props) => {
+
+  const user ={
+    "id": 3,
+    "usser": "JuranyR",
+    "password": "123456",
+    "profile_image": "https://img.freepik.com/vector-premium/mujer-joven-pelo-rizado-oscuro-vector_92795-2576.jpg?w=2000"
+  }
 
   return (
-    <Context.Provider value={pizzas} >{props.children}</Context.Provider>
+    <Context.Provider value={user} >{props.children}</Context.Provider>
   );
 }
 

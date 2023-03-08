@@ -1,8 +1,12 @@
 @import './components/CarShoppingPage/car-shopping-page.scss';
 @import './components/HomePage/home-page.scss';
+@import './components/HomePage/header/header.scss';
 @import './components/LoginPage/login-page.scss';
+@import './components/SearchPage/search-page.scss';
+@import './components/SearchPage/Footer/footer.scss';
 
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
