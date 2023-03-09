@@ -24,6 +24,7 @@
             justify-content: space-between;
             background-repeat: no-repeat;
             background-size: cover;
+            border-radius: 15px 0 0 15px;
         }
 
         &_div2{
@@ -55,7 +56,6 @@
     .point{
         width: 10px;
         height: 10px;
-        // background-color: #8f8f8f;
         border-radius: 50%;
         cursor: pointer;
     }
@@ -122,6 +122,10 @@
 .review{
     display: flex;
     gap: 15px;
+
+    &_div{
+        width: 100%;
+    }
 
     &_name_date{
         display: flex;
