@@ -20,17 +20,13 @@ function App() {
     <BrowserRouter>
       <ContextProvider>
         <Routes>
-          <Route path="/" element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/createUser" element={<CreateUser />} />
-          <Route path="/changePassword" element={<ChangePassword />} />
           <Route path="/pizza/:idPizza" element={<CarShoppingPage />} />
           <Route path="/form" element={<PurchaseForm />} />
 
           <Route path="/" element={<HomePage />} />
           <Route path="loginPrincipal" element={<Principal />} />
-          <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/editPassword" element={<EditPassword />} />
           <Route path="/car" element={<CarShoppingPage />} />
