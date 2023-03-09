@@ -10,3 +10,13 @@ export const getPizzas = async () => {
         return {}
     }
 }
+
+export const getPizza = async (idPizza) => {
+    try {
+        const { data } = await axios.get(`${endpoints.pizzas}/${idPizza}`)
+        return data
+    } catch (error) {
+        console.log(error);
+        return {}
+    }
+}

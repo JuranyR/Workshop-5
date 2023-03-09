@@ -45,9 +45,9 @@ export const patchUsser = async (id, usser) => {
     return {};
   }
 };
-export const getUser = async () => {
+export const getUser = async (user) => {
     try {
-        const { data } = await axios.get(endpoints.ussers);
+        const { data } = await axios.get(`${endpoints.ussers}?usser_like=${user}`);
         return data
     } catch (error) {
         console.log(error);
