@@ -8,19 +8,32 @@ import LoginPage from "./components/LoginPage/loginPage";
 import ContextProvider from "./Context/context";
 import CarShoppingPage from "./components/CarShoppingPage/carShoppingPage";
 import PurchaseForm from "./components/PurchaseForm/purchaseForm";
+import EditPassword from "./components/LoginPage/EditPassword";
+import Register from "./components/LoginPage/Register";
+import LoginPage from "./components/LoginPage/loginPage";
+import ContextProvider from "./Context/context";
+import CarShoppingPage from "./components/CarShoppingPage/carShoppingPage";
+import Principal from "./components/LoginPage/Principal";
 
 function App() {
   return (
     <BrowserRouter>
       <ContextProvider>
         <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/createUser" element={<CreateUser />} />
-            <Route path="/changePassword" element={<ChangePassword />} />
-            <Route path="/pizza/:idPizza" element={<CarShoppingPage />} />
-            <Route path="/form" element={<PurchaseForm />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/createUser" element={<CreateUser />} />
+          <Route path="/changePassword" element={<ChangePassword />} />
+          <Route path="/pizza/:idPizza" element={<CarShoppingPage />} />
+          <Route path="/form" element={<PurchaseForm />} />
+
+          <Route path="/" element={<HomePage />} />
+          <Route path="loginPrincipal" element={<Principal />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/editPassword" element={<EditPassword />} />
+          <Route path="/car" element={<CarShoppingPage />} />
         </Routes>
       </ContextProvider>
     </BrowserRouter>

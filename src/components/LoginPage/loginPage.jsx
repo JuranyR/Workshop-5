@@ -110,12 +110,12 @@ const LoginPage = () => {
         {/* ////////////////////////////////////////////////////////// */}
 
         <footer className="footer-form">
-          <Link to="/changePassword" className="restablecer-container__link">
+          <Link to="/editPassword" className="restablecer-container__link">
             Restablecer contraseña
           </Link>
           <div className="register-container">
             <p className="register-container__text">¿No tienes una cuenta?</p>
-            <Link to="/createUser" className="register-container__link">
+            <Link to="/register" className="register-container__link">
               Regístrate aquí
             </Link>
           </div>

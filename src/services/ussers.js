@@ -36,15 +36,16 @@ export const postUsser = async (dataUsser) => {
   }
 };
 
-export const patchUsser = async (id, usser) => {
+export const patchUsser = async (id, obj) => {
   try {
-    const { data } = await axios.patch(`${URL_USERS}/${id}`, usser);
+    const { data } = await axios.patch(`${URL_USERS}/${id}`, obj);
     return data;
   } catch (error) {
     console.log(error);
     return {};
   }
 };
+<<<<<<< HEAD
 export const getUser = async (user) => {
     try {
         const { data } = await axios.get(`${endpoints.ussers}?usser_like=${user}`);
@@ -54,13 +55,24 @@ export const getUser = async (user) => {
         return {}
     }
 }
+=======
+export const getUser = async () => {
+  try {
+    const { data } = await axios.get(endpoints.ussers);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return {};
+  }
+};
+>>>>>>> loginDetails
 
 export const postUser = async (obj) => {
-    try {
-        const { data } = await axios.post(endpoints.ussers, obj)
-        return data
-    } catch (error) {
-        console.log(error);
-        return {}
-    }
-}
+  try {
+    const { data } = await axios.post(endpoints.ussers, obj);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return {};
+  }
+};

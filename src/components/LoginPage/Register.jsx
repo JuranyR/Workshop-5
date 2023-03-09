@@ -16,20 +16,6 @@ const CreateUser = () => {
     formState: { errors },
   } = useForm();
 
-  const usersLogin = async (usserValue) => {
-    // const usersLoginData = await getUssers();
-    // const users = [];
-    // usersLoginData.map((user) => users.push(user.usser));
-    // // console.log(users);
-    // users.map((findUser) => {
-    //   if (findUser === usserValue) {
-    //     console.log("coincidencia");
-    //   } else {
-    //     console.log("no coincidencia");
-    //   }
-    // });
-  };
-
   ////////////////FUNCIÓN PARA VALIDAR LA CONTRASEÑA
   const validatePassword = (passwordValue) => {
     if (!passwordValue.length) {
@@ -42,10 +28,24 @@ const CreateUser = () => {
   };
 
   ////////////////////FUNCIÓN PARA VALIDAR QUE EL USUARIO SEA DIFERENTE DE UNO EXISTENTE
-  const validateUser = (userValue) => {
+  const validateUser = async (userValue) => {
     if (!userValue.length) {
       return "Este campo es obligatorio!";
-    } else usersLogin();
+    } else {
+      const usersLoginData = await getUssers();
+      const users = [];
+      usersLoginData.map((user) => users.push(user.usser));
+      // console.log(users);
+      users.map((findUser) => {
+        if (findUser === userValue) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Este nombre de usuario ya está en uso!",
+          });
+        }
+      });
+    }
   };
   ///////////////////FUNCIÓN PARA ENVIAR FORMULARIO
   const onSubmit = async (data) => {
