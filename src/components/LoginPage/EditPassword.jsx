@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import logo from "../../images/icon-pizza.png";
 import user from "../../images/icon-user.svg";
@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 import { getUssers } from "../../services/ussers";
 import { patchUsser } from "../../services/ussers";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const ChangePassword = () => {
+  const navigate = useNavigate();
   //////////////////////USE FORM
   const {
     register,
@@ -24,8 +26,9 @@ const ChangePassword = () => {
       (uniqueUser) => uniqueUser.usser === data.usser
     );
     if (user.length) {
-      patchUsser(user);
-      console.log(data);
+      patchUsser(user[0].id, { password: data.password });
+      Swal.fire("Perfecto!", "Contraseña actualizada!", "success");
+      navigate("/login");
     } else {
       Swal.fire({
         icon: "error",
@@ -35,11 +38,6 @@ const ChangePassword = () => {
     }
   };
 
-  ///////////////////ERROR USUARIO NO ENCONTRADO
-  const [errorUserNoFound, setErrorUserNoFound] = useState({
-    status: false,
-    message: "",
-  });
   return (
     <main className="main-form">
       <aside className="logo-container">
@@ -94,18 +92,13 @@ const ChangePassword = () => {
           <button className="submit-button" type="submit">
             Restaurar contraseña
           </button>
-          {errorUserNoFound.status ? (
-            <p className="error-no-found ">{errorUserNoFound.message}</p>
-          ) : (
-            <></>
-          )}
         </form>
         {/* ////////////////////////////////////////////////////////// */}
 
         <footer className="footer-form">
           <div className="register-container">
             <p className="register-container__text">¿No tienes una cuenta?</p>
-            <Link to="/createUser" className="register-container__link">
+            <Link to="/register" className="register-container__link">
               Regístrate aquí
             </Link>
           </div>

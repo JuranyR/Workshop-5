@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/homePage";
-import ChangePassword from "./components/LoginPage/ChangePassword";
-import CreateUser from "./components/LoginPage/CreateUser";
+import EditPassword from "./components/LoginPage/EditPassword";
+import Register from "./components/LoginPage/Register";
 import LoginPage from "./components/LoginPage/loginPage";
 import ContextProvider from "./Context/context";
-import CarShoppingPage from "./components/CarShoppingPage/carShoppingPage"
+import CarShoppingPage from "./components/CarShoppingPage/carShoppingPage";
+import Principal from "./components/LoginPage/Principal";
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
       <ContextProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="loginPrincipal" element={<Principal />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/createUser" element={<CreateUser />} />
-          <Route path="/changePassword" element={<ChangePassword />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/editPassword" element={<EditPassword />} />
           <Route path="/car" element={<CarShoppingPage />} />
         </Routes>
       </ContextProvider>

@@ -1,0 +1,71 @@
+//////////////////////create user
+.container-inputs {
+  display: flex;
+  margin-bottom: 10%;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+
+//////////////Principal
+.main-form-principal {
+  height: 100vh;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://90lineas.com/wp-content/uploads/2023/02/511026.webp");
+  background-position-x: 35%;
+}
+.buttons-section {
+  // border: 1px solid red;
+  padding: 0 20px 0 20px;
+  margin-top: 10%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.button-containers {
+  background-color: white;
+  width: 100%;
+  // padding: 10px;
+  height: 55px;
+  align-items: center;
+  display: flex;
+  margin-bottom: 5%;
+
+  &__figure {
+    margin-left: 10px;
+    margin-right: 20px;
+    // border: 1px solid red;
+    width: 20%;
+    height: 100%;
+    padding: 13px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  &__text {
+    color: black;
+    font-size: 16px;
+  }
+}
+.link {
+  text-decoration: none;
+}
+@media (min-width: 1000px) {
+  //////////principal
+  .main-form-principal {
+    display: flex;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("https://90lineas.com/wp-content/uploads/2023/02/511026.webp");
+  }
+  /////////////create user
+  .container-inputs {
+    margin-bottom: 5%;
+    border-bottom: 1.5px solid white;
+  }
+}

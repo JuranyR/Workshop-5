@@ -36,9 +36,9 @@ export const postUsser = async (dataUsser) => {
   }
 };
 
-export const patchUsser = async (id, usser) => {
+export const patchUsser = async (id, obj) => {
   try {
-    const { data } = await axios.patch(`${URL_USERS}/${id}`, usser);
+    const { data } = await axios.patch(`${URL_USERS}/${id}`, obj);
     return data;
   } catch (error) {
     console.log(error);
@@ -46,21 +46,21 @@ export const patchUsser = async (id, usser) => {
   }
 };
 export const getUser = async () => {
-    try {
-        const { data } = await axios.get(endpoints.ussers);
-        return data
-    } catch (error) {
-        console.log(error);
-        return {}
-    }
-}
+  try {
+    const { data } = await axios.get(endpoints.ussers);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return {};
+  }
+};
 
 export const postUser = async (obj) => {
-    try {
-        const { data } = await axios.post(endpoints.ussers, obj)
-        return data
-    } catch (error) {
-        console.log(error);
-        return {}
-    }
-}
+  try {
+    const { data } = await axios.post(endpoints.ussers, obj);
+    return data;
+  } catch (error) {
+    console.log(error);
+    return {};
+  }
+};
