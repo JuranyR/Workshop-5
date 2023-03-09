@@ -1,6 +1,7 @@
 .shopping_page{
-    background-color: #f63d5d;
+    // background-image: url('https://i.pinimg.com/originals/ce/40/e8/ce40e8eb24f8cd06914673de41a85d1c.jpg');
     width: 100%;
+    background-color: #FEEFED;
     height: 100vh;
     padding: 50px;
     display: flex;
@@ -12,7 +13,7 @@
         background-color: #2b2b2b;
         width: 900px;
         height: 100%;
-        border-radius: 15px;
+        border-radius: 15px ;
         display: flex;
 
         &_div1{
@@ -30,9 +31,16 @@
         &_div2{
             width: 50%;
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #f63d5d;
+            border-radius: 0px 15px 15px 0px;
 
             .top{
                 padding: 30px;
+                border-radius: 0px 15px 30px 30px;
+                background-color: #2b2b2b
             }
 
             h1{
@@ -48,7 +56,6 @@
 }
 
 .point_container{
-    // height: 70px;
     display: flex;
     gap: 10px;
     align-self: center;
@@ -76,11 +83,6 @@
         font-size: 15px;
     }
 }
-
-// .pizza_image{
-//     width: 100%;
-//     height: 100px;
-// }
 
 .price_reviews{
     display: flex;
@@ -167,12 +169,12 @@
 
 .car{
     background-color: #f63d5d;
-    margin: 0px 30px 0px 30px;
-    height: 60px;
-    border-radius: 10px;
+    height: 100%;
+    border-radius: 0px 0px 15px 0px;
+    padding: 0px 30px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     div{
         display: flex;
@@ -217,4 +219,49 @@
 }
 
 
+//Responsive 
+@media (max-width: 850px) {
+    .shopping_page{
+        padding: 0px; 
 
+        &_modal{
+            background-color: #f63d5d;
+            width: 100%; 
+            height: 100vh; 
+            border-radius: 0px; 
+            flex-direction: column;
+
+            &_div1{
+                width: 100%; 
+                height: 40vh; 
+                padding: 10px 15px; 
+                border-radius: 0 ;
+            }
+
+            &_div2{
+                width: 100%; 
+                height: 60vh; 
+                display: flex;
+                flex-direction: column; 
+                justify-content: space-between;
+
+                .top{
+                    padding: 15px 15px 1px 15px; 
+                    border-radius: 0px 0px 30px 30px;
+                    background-color: #2b2b2b;
+                }
+            }
+        }
+    }
+
+    .price_reviews{
+        margin: 20px 0px 20px 0px; 
+    }
+
+    .car{
+        margin: 0px 0px 0px 0px; 
+        height: 100%;
+        border-radius: 0px; 
+        justify-content: space-between;
+    }
+}
