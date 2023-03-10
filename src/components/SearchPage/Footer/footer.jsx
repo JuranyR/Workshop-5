@@ -13,9 +13,13 @@ const Footer = () => {
         <>
             <div className="store">
                 <div className="outer-circle">
-                    <figure className="inner-circle">
-                        <img src={store} alt="store"/>
-                    </figure>
+                    <NavLink
+                      to="/form"
+                    >
+                        <figure className="inner-circle">
+                            <img src={store} alt="store"/>
+                        </figure>
+                    </NavLink>
                 </div>
             </div>
             <footer className="footer">
