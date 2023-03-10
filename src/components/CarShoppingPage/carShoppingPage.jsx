@@ -3,15 +3,17 @@ import 'animate.css';
 import { DateTime } from 'luxon';
 import UseAnimations from 'react-useanimations';
 import loading from 'react-useanimations/lib/loading'
+import Swal from 'sweetalert2'
 import { useEffect, useState } from 'react'; 
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, Link, useNavigate } from "react-router-dom";
 import { getPizza } from "../../services/pizzas";
 import { getUser } from "../../services/ussers";
 import arrow from "../../images/arrow_left.png"
 import star from "../../images/icon_estrella.png"
 import star_orange from "../../images/icon_estrella_orange.png"
-// import shopping_basket from "../../images/icon_shopping_basket.png"
-import shopping_basket from "../../images/basket_white.svg"
+import shopping_basket from "../../images/icon_shopping_basket.png"
+import shopping_basket_full from "../../images/icon_shopping_basket_full.png"
+// import shopping_basket from "../../images/basket_white.svg"
 
 const CarShoppingPage = () => { 
 
@@ -21,6 +23,8 @@ const CarShoppingPage = () => {
     const [profilePhoto, setProfilePhoto] = useState(null);
     const [amount, setAmount] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
+    const [pizzaBasket, setPizzaBasket] = useState(null)
+    const navigate = useNavigate();
 
     //Function to obtain from the API the object that matches the idPizza
     const getPizzaAPI = () => {
@@ -77,6 +81,29 @@ const CarShoppingPage = () => {
     //Function to increase the amount of pizza
     const handleIncrease = () => {
         setAmount(amount+1)
+    }
+
+    //Function to fill the shopping cart
+    const handleBasket = () => {
+        setPizzaBasket({
+            obj_pizza: pizza,
+            amount_pizza: amount
+        })
+    }
+
+    //Function to validate the redirection to the payment page 
+    const handleOrder = () => {
+        if (pizzaBasket) {
+            navigate("/form", { state: pizzaBasket });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                iconColor: '#f63d5d',
+                background: '#2b2b2b',
+                color: '#ffffff',
+                text: 'Agrega una pizza a tu carrito para ordenar.',
+            })
+        }
     }
 
     //Function to format the price
@@ -137,8 +164,8 @@ const CarShoppingPage = () => {
                             <span>{amount}</span>
                             <button className="car_add_reduce" onClick={handleIncrease}>+</button>
                             <div>
-                                <NavLink to='/form'><button className="car_shopping_basket"><img src={shopping_basket} alt="Icono cesta de compra" /></button></NavLink>
-                                <NavLink to='/form'><button className="car_order">Ordenar</button></NavLink>
+                                <button className="car_shopping_basket" type="button" onClick={handleBasket}><img src={ pizzaBasket ? shopping_basket_full : shopping_basket} alt="Icono cesta de compra" /></button>
+                                <button className="car_order" type="button" onClick={handleOrder}>Ordenar</button>
                             </div>
                         </section>
                     </div>

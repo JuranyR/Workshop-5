@@ -218,6 +218,17 @@
     }
 }
 
+.swal2-styled.swal2-confirm {
+    background-color: #ff8a00 !important; 
+}
+
+.swal2-styled.swal2-default-outline:focus {
+    box-shadow: none !important;
+}
+
+.swal2-styled.swal2-confirm:focus {
+    box-shadow: none !important;
+}
 
 //Responsive 
 @media (max-width: 850px) {
