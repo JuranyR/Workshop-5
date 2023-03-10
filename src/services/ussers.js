@@ -54,19 +54,6 @@ export const getUser = async (user) => {
         return {}
     }
 }
-<<<<<<< HEAD
-=======
-
-// export const getUser = async () => {
-//   try {
-//     const { data } = await axios.get(endpoints.ussers);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//     return {};
-//   }
-// };
->>>>>>> 907ad3c6782395c41d95693f64d40fc8516b1a45
 
 export const postUser = async (obj) => {
   try {
