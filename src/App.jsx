@@ -2,17 +2,17 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/homePage";
 import SearchPage from "./components/SearchPage/searchPage";
-import ChangePassword from "./components/LoginPage/ChangePassword";
-import CreateUser from "./components/LoginPage/CreateUser";
+// import ChangePassword from "./components/LoginPage/ChangePassword";
+// import CreateUser from "./components/LoginPage/CreateUser";
 import LoginPage from "./components/LoginPage/loginPage";
 import ContextProvider from "./Context/context";
 import CarShoppingPage from "./components/CarShoppingPage/carShoppingPage";
 import PurchaseForm from "./components/PurchaseForm/purchaseForm";
 import EditPassword from "./components/LoginPage/EditPassword";
 import Register from "./components/LoginPage/Register";
-import LoginPage from "./components/LoginPage/loginPage";
-import ContextProvider from "./Context/context";
-import CarShoppingPage from "./components/CarShoppingPage/carShoppingPage";
+// import LoginPage from "./components/LoginPage/loginPage";
+// import ContextProvider from "./Context/context";
+// import CarShoppingPage from "./components/CarShoppingPage/carShoppingPage";
 import Principal from "./components/LoginPage/Principal";
 
 function App() {
