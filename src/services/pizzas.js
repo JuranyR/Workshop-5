@@ -20,3 +20,13 @@ export const getPizza = async (idPizza) => {
         return {}
     }
 }
+
+export const getSearchPizza = async (searchWord) => {
+    try {
+        const { data } = await axios.get(`${endpoints.pizzas}?name_like=${searchWord}`)
+        return data
+    } catch (error) {
+        console.log(error);
+        return {}
+    }
+}

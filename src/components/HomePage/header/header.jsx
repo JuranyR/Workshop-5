@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { Context } from '../../../Context/context';
 
 const Header = () => { 
-    const  user = useContext(Context);
+    const  {user} = useContext(Context);
     return(
         <section className="header">
             <div>

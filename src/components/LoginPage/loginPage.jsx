@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import logo from "../../images/icon-pizza.png";
 import user from "../../images/icon-user.svg";
@@ -6,8 +6,10 @@ import lock from "../../images/icon-lock.svg";
 import { getLoginUsser, getUssers } from "../../services/ussers";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Context } from '../../Context/context';
 
 const LoginPage = () => {
+  const  {setUser} = useContext(Context);
   const navigate = useNavigate();
   //////////////////////USE FORM
   const {
@@ -31,7 +33,7 @@ const LoginPage = () => {
         message: "Usuario o contraseña incorrectos!",
       });
     } else {
-      console.log(responseLogin);
+      setUser(responseLogin[0])
       navigate("/");
     }
   };

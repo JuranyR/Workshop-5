@@ -7,6 +7,15 @@
     height: 55px;
     position: relative;
     align-items: end;
+    .link-footer{
+        color: #8f8f8f;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        &.selected{
+            color: #ff3131;
+        }
+    }
     figure{
         display: flex;
         align-items: center;
@@ -17,18 +26,11 @@
         padding:0 30px;
         &.left{
             border-radius: 0 40px 0 0;
-            .home-footer{
-                color: #8f8f8f;
-            }
         }
         &.right{
             border-radius: 40px 0 0 0;
             justify-content: end;
-            .search-footer{
-                color: #ff3131;
-            }
         }
-
         img{
             max-width: 30px;
             margin-right: 10px
