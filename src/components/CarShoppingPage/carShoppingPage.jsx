@@ -28,21 +28,29 @@ const CarShoppingPage = () => {
 
     //Function to obtain from the API the object that matches the idPizza
     const getPizzaAPI = () => {
-        getPizza(idPizza)
-            .then(result => {
-                setPizza(result);
-                setPhoto(result.images.one);
-                getUserImg(result.reviews[0].user);
-            })
+        try {
+            getPizza(idPizza)
+                .then(result => {
+                    setPizza(result);
+                    setPhoto(result.images.one);
+                    getUserImg(result.reviews[0].user);
+                    })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     //Function to obtain the profile image of the user who made the review
     const getUserImg = (userReview) => {
-        getUser(userReview)
-            .then(response => {
-                setProfilePhoto(response[0].profile_image);
-                setIsLoading(false);
-            })
+        try {
+            getUser(userReview)
+                .then(response => {
+                    setProfilePhoto(response[0].profile_image);
+                    setIsLoading(false);
+                })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     useEffect(() => {

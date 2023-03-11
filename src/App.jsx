@@ -11,6 +11,7 @@ import PurchaseForm from "./components/PurchaseForm/purchaseForm";
 import EditPassword from "./components/LoginPage/EditPassword";
 import Register from "./components/LoginPage/Register";
 import Principal from "./components/LoginPage/Principal";
+import PaymentConfirmation from "./components/PaymentConfirmation/PaymentConfirmation";
 
 function App() {
   return (
@@ -21,12 +22,11 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/pizza/:idPizza" element={<CarShoppingPage />} />
           <Route path="/form" element={<PurchaseForm />} />
-
           <Route path="/" element={<HomePage />} />
           <Route path="loginPrincipal" element={<Principal />} />
           <Route path="/register" element={<Register />} />
           <Route path="/editPassword" element={<EditPassword />} />
-          <Route path="/car" element={<CarShoppingPage />} />
+          <Route path="/paymentConfirmation" element={<PaymentConfirmation />} />
         </Routes>
       </ContextProvider>
     </BrowserRouter>
