@@ -42,7 +42,8 @@ const SearchPage = () => {
                         pizzas.map((pizza, index)=>(
                             <Carousel className="carousel" showArrows={false} showThumbs={false} showStatus={false} key={index}>
                                 <NavLink
-                                        to={`/pizza/${pizza.id}`}
+                                    to={`/pizza/${pizza.id}`}
+                                    state={pizza}
                                 >
                                     <div className="item-carousel">
                                         <img src={pizza.images.one} className="carrousel_pics"/>
@@ -53,7 +54,8 @@ const SearchPage = () => {
                                     </div>
                                 </NavLink>
                                 <NavLink
-                                        to={`/pizza/${pizza.id}`}
+                                    to={`/pizza/${pizza.id}`}
+                                    state={pizza}
                                 >
                                     <div className="item-carousel">
                                         <img src={pizza.images.two} className="carrousel_pics"/>
@@ -64,7 +66,8 @@ const SearchPage = () => {
                                     </div>
                                 </NavLink>
                                 <NavLink
-                                        to={`/pizza/${pizza.id}`}
+                                    to={`/pizza/${pizza.id}`}
+                                    state={pizza}
                                 >
                                     <div className="item-carousel">
                                         <img src={pizza.images.three} className="carrousel_pics"/>

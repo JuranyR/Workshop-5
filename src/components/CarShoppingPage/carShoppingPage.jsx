@@ -5,7 +5,7 @@ import UseAnimations from "react-useanimations";
 import loading from "react-useanimations/lib/loading";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
-import { NavLink, useParams, Link, useNavigate } from "react-router-dom";
+import { NavLink, useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import { getPizza } from "../../services/pizzas";
 import { getUser } from "../../services/ussers";
 import arrow from "../../images/arrow_left.png";
@@ -17,6 +17,7 @@ import shopping_basket_full from "../../images/icon_shopping_basket_full.png";
 
 const CarShoppingPage = () => {
   const { idPizza } = useParams();
+  const pizzaState = useLocation();
   const [pizza, setPizza] = useState(null);
   const [photo, setPhoto] = useState("");
   const [profilePhoto, setProfilePhoto] = useState(null);
@@ -38,6 +39,13 @@ const CarShoppingPage = () => {
     }
   };
 
+  //Function to obtain data from the state
+  const getPizzaState = () => {
+    setPizza(pizzaState.state);
+    setPhoto(pizzaState.state.images.one);
+    getUserImg(pizzaState.state.reviews[0].user);
+  };
+
   //Function to obtain the profile image of the user who made the review
   const getUserImg = (userReview) => {
     try {
@@ -51,8 +59,14 @@ const CarShoppingPage = () => {
   };
 
   useEffect(() => {
+    if (pizzaState.state) {
+      getPizzaState();
+      return
+    } 
+    
     if (idPizza) {
       getPizzaAPI();
+      console.log('entre por la API')
     }
   }, []);
 

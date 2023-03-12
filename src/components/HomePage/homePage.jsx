@@ -41,6 +41,7 @@ const HomePage = () => {
                         <Carousel className="carousel" showArrows={false} showThumbs={false} showStatus={false} key={index}>
                             <NavLink
                                 to={`/pizza/${pizza.id}`}
+                                state={pizza}
                             >
                                 <div className="item-carousel">
                                     <img src={pizza.images.one} className="carrousel_pics"/>
@@ -51,7 +52,8 @@ const HomePage = () => {
                                 </div>
                             </NavLink>
                             <NavLink
-                                    to={`/pizza/${pizza.id}`}
+                                to={`/pizza/${pizza.id}`}
+                                state={pizza}
                             >
                                 <div className="item-carousel">
                                     <img src={pizza.images.two} className="carrousel_pics"/>
@@ -62,7 +64,8 @@ const HomePage = () => {
                                 </div>
                             </NavLink>
                             <NavLink
-                                    to={`/pizza/${pizza.id}`}
+                                to={`/pizza/${pizza.id}`}
+                                state={pizza}
                             >
                                 <div className="item-carousel">
                                     <img src={pizza.images.three} className="carrousel_pics"/>
