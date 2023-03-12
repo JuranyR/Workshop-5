@@ -23,12 +23,12 @@ const Footer = () => {
       <footer className="footer">
         <figure className="left">
           <NavLink
-            to="/"
+            to="/home"
             className={({ isActive }) =>
               isActive ? "selected link-footer" : "link-footer"
             }
           >
-            {location.pathname === "/" ? (
+            {location.pathname === "/home" ? (
               <img src={homeRed} alt="icon" />
             ) : (
               <img src={home} alt="icon" />
