@@ -37,34 +37,44 @@ const SearchPage = () => {
             <div className="body">
                 {pizzas.length>0 ?
                         pizzas.map((pizza, index)=>(
-                            <NavLink
-                                key={index}
-                                to={`/pizza/${pizza.id}`}
-                            >
-                                <Carousel className="carousel" showArrows={false} showThumbs={false} showStatus={false}>
-                                    <div className="item-carousel">
-                                        <img src={pizza.images.one} />
+                            <Carousel className="carousel" showArrows={false} showThumbs={false} showStatus={false}>
+                                <div className="item-carousel">
+                                    <img src={pizza.images.one} />
+                                    <NavLink
+                                        key={index}
+                                        to={`/pizza/${pizza.id}`}
+                                    >
                                         <div className="description">
                                             <p><b>{pizza.name}</b></p>
                                             <span className="price"><b>${pizza.price}</b> MXN</span>
                                         </div>
-                                    </div>
-                                    <div className="item-carousel">
-                                        <img src={pizza.images.two} />
+                                    </NavLink>
+                                </div>
+                                <div className="item-carousel">
+                                    <img src={pizza.images.two} />
+                                    <NavLink
+                                        key={index}
+                                        to={`/pizza/${pizza.id}`}
+                                    >
                                         <div className="description">
                                             <p><b>{pizza.name}</b></p>
                                             <span className="price"><b>${pizza.price}</b> MXN</span>
                                         </div>
-                                    </div>
-                                    <div className="item-carousel">
-                                        <img src={pizza.images.three} />
+                                    </NavLink>
+                                </div>
+                                <div className="item-carousel">
+                                    <img src={pizza.images.three} />
+                                    <NavLink
+                                        key={index}
+                                        to={`/pizza/${pizza.id}`}
+                                    >
                                         <div className="description">
                                             <p><b>{pizza.name}</b></p>
                                             <span className="price"><b>${pizza.price}</b> MXN</span>
                                         </div>
-                                    </div>
-                                </Carousel>
-                            </NavLink>
+                                    </NavLink>
+                                </div>
+                            </Carousel>
                         ))
                     :
                         <div className="text-body">
