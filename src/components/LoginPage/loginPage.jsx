@@ -1,15 +1,15 @@
 import { React, useEffect, useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import logo from "../../images/icon-pizza.png";
-import user from "../../images/icon-user.svg";
+import userIcon from "../../images/icon-user.svg";
 import lock from "../../images/icon-lock.svg";
 import { getLoginUsser, getUssers } from "../../services/ussers";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Context } from '../../Context/context';
+import { Context } from "../../Context/context";
 
 const LoginPage = () => {
-  const  {setUser} = useContext(Context);
+  const { user, setUser } = useContext(Context);
   const navigate = useNavigate();
   //////////////////////USE FORM
   const {
@@ -23,6 +23,7 @@ const LoginPage = () => {
     status: false,
     message: "",
   });
+
   ///////////////////FUNCIÓN PARA ENVIAR FORMULARIO
   const onSubmit = async (data) => {
     // console.log(data);
@@ -33,20 +34,26 @@ const LoginPage = () => {
         message: "Usuario o contraseña incorrectos!",
       });
     } else {
-      setUser(responseLogin[0])
-      navigate("/");
+      setUser(responseLogin[0]);
+      navigate("/home");
     }
   };
 
   //////////////////FUNCIÓN PARA OBTENER LOS USUARIOS DE LA API
   const getData = async () => {
     const response = await getUssers();
-    console.log(response);
   };
 
-  ///////////////////LLAMAR LA FUNCIÓN QUE OBTIENE LOS USUARIOS
+  ///////////////////LLAMAR FUNCIÓN QUE OBTIENE USUARIOS
   useEffect(() => {
     getData();
+  }, []);
+
+  ///////////SI EL USUARIO ESTÁ LOGUEADO, NO MOSTRAR EL COMPONENTE LOGIN(todavía no funciona)
+  useEffect(() => {
+    if (user) {
+      navigate("/home");
+    }
   }, []);
 
   return (
@@ -69,7 +76,7 @@ const LoginPage = () => {
           <div className="input-container">
             <img
               className="input-container__img"
-              src={user}
+              src={userIcon}
               alt="Usuario icon"
             />
             <input

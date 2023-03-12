@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/homePage";
 import SearchPage from "./components/SearchPage/searchPage";
-// import ChangePassword from "./components/LoginPage/ChangePassword";
-// import CreateUser from "./components/LoginPage/CreateUser";
 import LoginPage from "./components/LoginPage/loginPage";
 import ContextProvider from "./Context/context";
 import CarShoppingPage from "./components/CarShoppingPage/carShoppingPage";
@@ -12,6 +10,8 @@ import EditPassword from "./components/LoginPage/EditPassword";
 import Register from "./components/LoginPage/Register";
 import Principal from "./components/LoginPage/Principal";
 import PaymentConfirmation from "./components/PaymentConfirmation/PaymentConfirmation";
+import RoutePrivate from "./RoutePrivate";
+
 
 function App() {
   return (
@@ -24,6 +24,16 @@ function App() {
           <Route path="/form" element={<PurchaseForm />} />
           <Route path="/" element={<HomePage />} />
           <Route path="loginPrincipal" element={<Principal />} />
+          <Route
+            path="/home"
+            element={
+              <RoutePrivate>
+                <HomePage />
+              </RoutePrivate>
+            }
+          />
+          {/* <Route path="/home" element={<HomePage />} /> */}
+          <Route index element={<Principal />} />
           <Route path="/register" element={<Register />} />
           <Route path="/editPassword" element={<EditPassword />} />
           <Route path="/paymentConfirmation" element={<PaymentConfirmation />} />
