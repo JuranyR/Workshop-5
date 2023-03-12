@@ -1,19 +1,19 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./header/header";
 import { Carousel } from "react-responsive-carousel";
-import 'react-responsive-carousel/lib/styles/carousel.css'
+import "react-responsive-carousel/lib/styles/carousel.css";
 import Footer from "../SearchPage/Footer/footer";
 import { getPizzas } from "../../services/pizzas";
 import { NavLink } from "react-router-dom";
 
-const HomePage = () => { 
-    const [pizzas, setPizzas]= useState([])
+const HomePage = () => {
+  const [pizzas, setPizzas] = useState([]);
 
-    useEffect(()=>{
-        getPizzas().then(data=>{
-            setPizzas(data);
-        });
-    },[])
+  useEffect(() => {
+    getPizzas().then((data) => {
+      setPizzas(data);
+    });
+  }, []);
 
     return(
         <section className="home-page">
