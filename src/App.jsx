@@ -17,27 +17,20 @@ function App() {
   return (
     <BrowserRouter>
       <ContextProvider>
+      <RoutePrivate>
         <Routes>
+          <Route index element={<Principal />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/pizza/:idPizza" element={<CarShoppingPage />} />
           <Route path="/form" element={<PurchaseForm />} />
-          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="loginPrincipal" element={<Principal />} />
-          <Route
-            path="/home"
-            element={
-              <RoutePrivate>
-                <HomePage />
-              </RoutePrivate>
-            }
-          />
-          {/* <Route path="/home" element={<HomePage />} /> */}
-          <Route index element={<Principal />} />
           <Route path="/register" element={<Register />} />
           <Route path="/editPassword" element={<EditPassword />} />
           <Route path="/paymentConfirmation" element={<PaymentConfirmation />} />
         </Routes>
+      </RoutePrivate>
       </ContextProvider>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../images/icon-pizza.png";
 
 const Principal = () => {
@@ -26,9 +26,9 @@ const Principal = () => {
                 alt="google icon"
               />
             </figure>
-            <Link to="/login" className="button-containers__text link">
+            <NavLink to="/login" className="button-containers__text link">
               Iniciar con Google
-            </Link>
+            </NavLink>
           </div>
           <div className="button-containers">
             <figure className="button-containers__figure">

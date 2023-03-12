@@ -1,17 +1,17 @@
 import React, { useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Context } from "./Context/context";
 
 const RoutePrivate = ({ children }) => {
-  const { user, setUser } = useContext(Context);
+  const { user } = useContext(Context);
   const navigate = useNavigate("/");
 
   useEffect(() => {
-    if (!user) {
-      navigate("/login");
+    if (user && Object.keys(user).length === 0) {
+      navigate("/");
     }
   }, []);
-  return <>{user ? { children } : <></>}</>;
+  return <>{user ? <>{ children }</>: <></>}</>;
 };
 
 export default RoutePrivate;

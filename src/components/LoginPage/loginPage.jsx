@@ -50,11 +50,6 @@ const LoginPage = () => {
   }, []);
 
   ///////////SI EL USUARIO ESTÁ LOGUEADO, NO MOSTRAR EL COMPONENTE LOGIN(todavía no funciona)
-  useEffect(() => {
-    if (user) {
-      navigate("/home");
-    }
-  }, []);
 
   return (
     <main className="main-form">

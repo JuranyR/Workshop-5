@@ -140,7 +140,7 @@ const CarShoppingPage = () => {
             style={{ backgroundImage: `url(${photo})` }}
           >
             <div className="img_tittle">
-              <NavLink to="/">
+              <NavLink to="/home">
                 <i>
                   <img src={arrow} alt="Icono flecha izquierda" />
                 </i>

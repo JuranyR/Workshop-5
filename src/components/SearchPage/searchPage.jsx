@@ -37,11 +37,10 @@ const SearchPage = () => {
             <div className="body">
                 {pizzas.length>0 ?
                         pizzas.map((pizza, index)=>(
-                            <Carousel className="carousel" showArrows={false} showThumbs={false} showStatus={false}>
+                            <Carousel key={index} className="carousel" showArrows={false} showThumbs={false} showStatus={false}>
                                 <div className="item-carousel">
                                     <img src={pizza.images.one} />
                                     <NavLink
-                                        key={index}
                                         to={`/pizza/${pizza.id}`}
                                     >
                                         <div className="description">
@@ -53,7 +52,6 @@ const SearchPage = () => {
                                 <div className="item-carousel">
                                     <img src={pizza.images.two} />
                                     <NavLink
-                                        key={index}
                                         to={`/pizza/${pizza.id}`}
                                     >
                                         <div className="description">
@@ -65,7 +63,6 @@ const SearchPage = () => {
                                 <div className="item-carousel">
                                     <img src={pizza.images.three} />
                                     <NavLink
-                                        key={index}
                                         to={`/pizza/${pizza.id}`}
                                     >
                                         <div className="description">

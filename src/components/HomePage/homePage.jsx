@@ -35,11 +35,10 @@ const HomePage = () => {
                 </Carousel>
                 {
                     pizzas.map((pizza, index)=>(
-                        <Carousel className="carousel" showArrows={false} showThumbs={false} showStatus={false}>
+                        <Carousel className="carousel" key={index} showArrows={false} showThumbs={false} showStatus={false}>
                             <div className="item-carousel">
                                 <img src={pizza.images.one} />
                                 <NavLink
-                                    key={index}
                                     to={`/pizza/${pizza.id}`}
                                 >
                                     <div className="description">
@@ -51,7 +50,6 @@ const HomePage = () => {
                             <div className="item-carousel">
                                 <img src={pizza.images.two} />
                                 <NavLink
-                                    key={index}
                                     to={`/pizza/${pizza.id}`}
                                 >
                                     <div className="description">
@@ -63,8 +61,7 @@ const HomePage = () => {
                             <div className="item-carousel">
                                 <img src={pizza.images.three} />
                                 <NavLink
-                                    key={index}
-                                    to={`/pizza/${pizza.id}`}
+                                  to={`/pizza/${pizza.id}`}
                                 >
                                     <div className="description">
                                         <p><b>{pizza.name}</b></p>
