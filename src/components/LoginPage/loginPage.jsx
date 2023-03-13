@@ -62,7 +62,7 @@ const LoginPage = () => {
       <section className="form-container">
         <h2 className="form-container__title">Inicia sesión en tu cuenta</h2>
         <p className="form-container__text">
-          Disfruta de la mejor pizza creada para las personas amantes del
+          Disfruta de la mejor Pizza creada para las personas amantes del
           Código.
         </p>
 
