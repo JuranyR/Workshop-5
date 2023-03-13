@@ -75,7 +75,7 @@ const LoginPage = () => {
               alt="Usuario icon"
             />
             <input
-              className="input-container__input"
+              className="input-container__input sinfondo"
               type="text"
               placeholder="Usuario"
               {...register("usser", {

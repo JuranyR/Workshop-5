@@ -56,6 +56,7 @@
                 img{
                     border-radius: 10px;
                     max-height: 315px;
+                    object-fit: cover;
                 }
                 .description{
                     position: absolute;
@@ -85,6 +86,19 @@
     }
 }
 
-.carrousel_pics{
-    object-fit: cover;
+
+@media (max-width: 683px) {
+    .home-page,.search-page{
+        .body{
+            .carousel{
+                margin: 5px 0;
+                .item-carousel{
+                    img{
+                        max-height: 200px;
+                    }
+            
+                }
+            }
+        }
+    }
 }
