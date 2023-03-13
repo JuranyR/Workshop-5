@@ -11,7 +11,7 @@ const PaymentConfirmation = () => {
                 <p>Serás notificado cuando llegue el repartidor.</p>                
             </div>
             <div className='button_container'>
-                <Link to="/"><button>Aceptar</button></Link>
+                <Link to="/home"><button>Aceptar</button></Link>
                 </div>
         </section>
     )
