@@ -52,6 +52,8 @@
     color: white;
     font-size: 16px;
   }
+
+  
 }
 //////////////FORMULARIO
 .form {
@@ -61,6 +63,7 @@
   margin-top: 10%;
   padding: 20px;
   gap: 20px;
+
 }
 .input-container {
   display: flex;
@@ -96,7 +99,10 @@
   padding: 15px 20px 15px 20px;
   border: none;
   color: rgb(39, 39, 39);
+  border-radius: 5px;
 }
+
+
 .register-container {
   margin-bottom: 10%;
 }
@@ -179,3 +185,4 @@
     font-weight: bold;
   }
 }
+

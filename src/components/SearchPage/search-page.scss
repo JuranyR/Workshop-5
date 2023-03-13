@@ -55,3 +55,12 @@
         }
     }
 }
+
+.results_search{
+    padding: 20px 30px 15px 30px;
+    font-weight: bold;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
