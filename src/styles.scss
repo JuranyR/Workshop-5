@@ -1,12 +1,13 @@
-@import './components/CarShoppingPage/car-shopping-page.scss';
-@import './components/HomePage/home-page.scss';
-@import './components/HomePage/header/header.scss';
-@import './components/LoginPage/login-page.scss';
-@import './components/SearchPage/search-page.scss';
-@import './components/SearchPage/Footer/footer.scss';
+@import "./components/CarShoppingPage/car-shopping-page.scss";
+@import "./components/HomePage/home-page.scss";
+@import "./components/HomePage/header/header.scss";
+@import "./components/LoginPage/login-page.scss";
+@import "./components/SearchPage/search-page.scss";
+@import "./components/SearchPage/Footer/footer.scss";
 @import "./components/PurchaseForm/purchaseForm.scss";
 @import "./components/LoginPage/details.scss";
 @import "./components/PaymentConfirmation/paymentConfirmation.scss";
+@import "./components/userModal/userModal.scss";
 
 body {
   margin: 0;
