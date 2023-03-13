@@ -1,0 +1,104 @@
+.home-page,.search-page{
+    background-color: #FEEFED;
+    position: relative;
+    height: 100vh;
+    .title{
+        display: flex;
+        padding: 0px 30px;
+        justify-content: space-between;
+        letter-spacing: 0.5px;
+        margin-top: 20px;
+        a{
+           color: #ff3131; 
+        }
+    }
+    .body{
+        letter-spacing: 1px;
+        height: calc(100% - 170px);
+        overflow-y: scroll;
+        .offer{
+            margin: 0 30px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: baseline;
+            padding: 0 20px;
+            height: 88px;
+            justify-content: center;
+            width: 90%;
+            background:     radial-gradient(7.68px at 10.15px 50%,#fd2b58 99%,#0000 101%) 0 calc(50% - 14px)/51% 28px repeat-y,
+              radial-gradient(7.68px at -3.15px 50%,#0000 99%,#fd2b58 101%) 7px 50%/calc(51% - 7px) 28px repeat-y,
+                  radial-gradient(7.68px at calc(100% - 10.15px) 50%,#fd2b58 99%,#0000 101%) 100% calc(50% - 14px)/51% 28px repeat-y,
+              radial-gradient(7.68px at calc(100% + 3.15px) 50%,#0000 99%,#fd2b58 101%) calc(100% - 7px) 50%/calc(51% - 7px) 28px repeat-y;
+            h1{
+                margin:0;
+            }
+            p{
+                font-size: 13px;
+            }
+        }
+        .carousel{
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            .item-carousel{
+                margin: 0 30px;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    left: 30px;
+                    right: 30px;
+                    top: 0;
+                    bottom: 0;
+                    border-radius: 10px;
+                    background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(177,185,185,0) 100%);
+                }
+                img{
+                    border-radius: 10px;
+                    max-height: 315px;
+                    object-fit: cover;
+                }
+                .description{
+                    position: absolute;
+                    bottom: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: #fff;
+                    margin: 0 20px 0 25px;
+                    width: 82%;
+                    p{
+                        flex: 0 1 50%;
+                        text-align: initial;
+                        font-size: 13px;
+                        font-weight: 900;
+                    }
+                    span{
+                        background-color: #FE1651;
+                        padding: 10px 15px;
+                        border-radius: 20px;
+                        margin-right: 20px;
+                    }
+                }
+        
+            }
+        }
+    }
+}
+
+
+@media (max-width: 683px) {
+    .home-page,.search-page{
+        .body{
+            .carousel{
+                margin: 5px 0;
+                .item-carousel{
+                    img{
+                        max-height: 200px;
+                    }
+            
+                }
+            }
+        }
+    }
+}

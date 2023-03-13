@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  h1 {
+    font-size: 28px;
+    margin: 0;
+  }
+  &-figure {
+    margin: 0;
+  }
+  &-img {
+    max-width: 60px;
+    max-height: 60px;
+    border-radius: 50%;
+  }
+}

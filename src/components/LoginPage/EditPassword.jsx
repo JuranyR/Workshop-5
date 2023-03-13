@@ -1,15 +1,15 @@
-import { React, useEffect, useState, useContext } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import logo from "../../images/icon-pizza.png";
-import userIcon from "../../images/icon-user.svg";
+import user from "../../images/icon-user.svg";
 import lock from "../../images/icon-lock.svg";
-import { getLoginUsser, getUssers } from "../../services/ussers";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Context } from "../../Context/context";
+import { getUssers } from "../../services/ussers";
+import { patchUsser } from "../../services/ussers";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
-  const { user, setUser } = useContext(Context);
+const ChangePassword = () => {
   const navigate = useNavigate();
   //////////////////////USE FORM
   const {
@@ -18,38 +18,25 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm();
 
-  ///////////////////ERROR USUARIO NO ENCONTRADO
-  const [errorUserNoFound, setErrorUserNoFound] = useState({
-    status: false,
-    message: "",
-  });
-
-  ///////////////////FUNCIÓN PARA ENVIAR FORMULARIO
+  /////////////FUNCIÓN PARA ENVIAR FORMULARIO
   const onSubmit = async (data) => {
-    // console.log(data);
-    const responseLogin = await getLoginUsser(data.usser, data.password);
-    if (!responseLogin.length) {
-      setErrorUserNoFound({
-        status: true,
-        message: "Usuario o contraseña incorrectos!",
-      });
+    const usersLogin = await getUssers();
+    /////////////FILTRO PARA BUSCAR EL OBJETO USUARIO CON EL USER
+    const user = usersLogin.filter(
+      (uniqueUser) => uniqueUser.usser === data.usser
+    );
+    if (user.length) {
+      patchUsser(user[0].id, { password: data.password });
+      Swal.fire("Perfecto!", "Contraseña actualizada!", "success");
+      navigate("/login");
     } else {
-      setUser(responseLogin[0]);
-      navigate("/home");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Este usuario no existe!",
+      });
     }
   };
-
-  //////////////////FUNCIÓN PARA OBTENER LOS USUARIOS DE LA API
-  const getData = async () => {
-    const response = await getUssers();
-  };
-
-  ///////////////////LLAMAR FUNCIÓN QUE OBTIENE USUARIOS
-  useEffect(() => {
-    getData();
-  }, []);
-
-  ///////////SI EL USUARIO ESTÁ LOGUEADO, NO MOSTRAR EL COMPONENTE LOGIN(todavía no funciona)
 
   return (
     <main className="main-form">
@@ -60,9 +47,9 @@ const LoginPage = () => {
         <h1 className="logo-container__title">PiSassScript</h1>
       </aside>
       <section className="form-container">
-        <h2 className="form-container__title">Inicia sesión en tu cuenta</h2>
+        <h2 className="form-container__title">Restaura tu contraseña</h2>
         <p className="form-container__text">
-          Disfruta de la mejor Pizza creada para las personas amantes del
+          Disfruta de la mejor pizza creada para las personas amantes del
           Código.
         </p>
 
@@ -71,13 +58,13 @@ const LoginPage = () => {
           <div className="input-container">
             <img
               className="input-container__img"
-              src={userIcon}
+              src={user}
               alt="Usuario icon"
             />
             <input
-              className="input-container__input sinfondo"
+              className="input-container__input"
               type="text"
-              placeholder="Usuario"
+              placeholder="Ingresa tu usuario"
               {...register("usser", {
                 required: true,
               })}
@@ -93,7 +80,7 @@ const LoginPage = () => {
             <input
               className="input-container__input"
               type="password"
-              placeholder="Contraseña"
+              placeholder="Ingresa tu nueva contraseña"
               {...register("password", {
                 required: true,
               })}
@@ -103,20 +90,12 @@ const LoginPage = () => {
             <p className="error">Este campo es obligatorio!</p>
           )}
           <button className="submit-button" type="submit">
-            Iniciar sesión
+            Restaurar contraseña
           </button>
-          {errorUserNoFound.status ? (
-            <p className="error-no-found ">{errorUserNoFound.message}</p>
-          ) : (
-            <></>
-          )}
         </form>
         {/* ////////////////////////////////////////////////////////// */}
 
         <footer className="footer-form">
-          <Link to="/editPassword" className="restablecer-container__link">
-            Restablecer contraseña
-          </Link>
           <div className="register-container">
             <p className="register-container__text">¿No tienes una cuenta?</p>
             <Link to="/register" className="register-container__link">
@@ -129,4 +108,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default ChangePassword;
