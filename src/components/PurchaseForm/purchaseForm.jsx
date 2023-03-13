@@ -120,7 +120,7 @@ const PurchaseForm = () => {
             amount: cant, // Agregar la cantidad de pizzas
             pizza_id: pizzaBuy.id, // Agregar el id de la pizza comprada
             pizza_name: pizzaBuy.name, //Agregar el nombre de la pizza
-            user_id: 1, //Agregar id del usuaruo que realizó el pedido CAMBIAR A user.id cuando este funcione
+            user_id: user.id, //Agregar id del usuaruo que realizó el pedido
             total_cost: pizzaBuy.price * cant, //Agregar el costo total del pedido
         };
         try {

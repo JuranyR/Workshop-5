@@ -23,7 +23,10 @@ const SearchPage = () => {
         if(inputSearch===''){
             setPizzas([])
         }
-    },[inputSearch])
+    }, [inputSearch])
+    
+    //Function to format the price
+    const formatPriceCard = (price) => price.toLocaleString("es-ES", { style: "decimal", minimumFractionDigits: 0, });
 
     return(
         <section className="search-page">
@@ -37,40 +40,43 @@ const SearchPage = () => {
             <div className="body">
                 {pizzas.length>0 ?
                         pizzas.map((pizza, index)=>(
-                            <Carousel key={index} className="carousel" showArrows={false} showThumbs={false} showStatus={false}>
-                                <div className="item-carousel">
-                                    <img src={pizza.images.one} />
-                                    <NavLink
-                                        to={`/pizza/${pizza.id}`}
-                                    >
+                            <Carousel className="carousel" showArrows={false} showThumbs={false} showStatus={false} key={index}>
+                                <NavLink
+                                    to={`/pizza/${pizza.id}`}
+                                    state={pizza}
+                                >
+                                    <div className="item-carousel">
+                                        <img src={pizza.images.one} className="carrousel_pics"/>
                                         <div className="description">
                                             <p><b>{pizza.name}</b></p>
-                                            <span className="price"><b>${pizza.price}</b> MXN</span>
+                                            <span className="price"><b>${formatPriceCard(pizza.price)}</b> COP</span>
                                         </div>
-                                    </NavLink>
-                                </div>
-                                <div className="item-carousel">
-                                    <img src={pizza.images.two} />
-                                    <NavLink
-                                        to={`/pizza/${pizza.id}`}
-                                    >
+                                    </div>
+                                </NavLink>
+                                <NavLink
+                                    to={`/pizza/${pizza.id}`}
+                                    state={pizza}
+                                >
+                                    <div className="item-carousel">
+                                        <img src={pizza.images.two} className="carrousel_pics"/>
                                         <div className="description">
                                             <p><b>{pizza.name}</b></p>
-                                            <span className="price"><b>${pizza.price}</b> MXN</span>
+                                            <span className="price"><b>${formatPriceCard(pizza.price)}</b> COP</span>
                                         </div>
-                                    </NavLink>
-                                </div>
-                                <div className="item-carousel">
-                                    <img src={pizza.images.three} />
-                                    <NavLink
-                                        to={`/pizza/${pizza.id}`}
-                                    >
+                                    </div>
+                                </NavLink>
+                                <NavLink
+                                    to={`/pizza/${pizza.id}`}
+                                    state={pizza}
+                                >
+                                    <div className="item-carousel">
+                                        <img src={pizza.images.three} className="carrousel_pics"/>
                                         <div className="description">
                                             <p><b>{pizza.name}</b></p>
-                                            <span className="price"><b>${pizza.price}</b> MXN</span>
+                                            <span className="price"><b>${formatPriceCard(pizza.price)}</b> COP</span>
                                         </div>
-                                    </NavLink>
-                                </div>
+                                    </div>
+                                </NavLink>
                             </Carousel>
                         ))
                     :
