@@ -153,7 +153,7 @@ const CreateUser = () => {
         <footer className="footer-form">
           <div className="register-container">
             <p className="register-container__text">¿Ya tienes una cuenta?</p>
-            <Link to="/login" className="register-container__link">
+            <Link to="/" className="register-container__link">
               Inicia sesión
             </Link>
           </div>
