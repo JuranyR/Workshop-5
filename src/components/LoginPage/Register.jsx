@@ -59,7 +59,7 @@ const CreateUser = () => {
         profile_image: data.profile_image,
       });
       Swal.fire("Perfecto!", "Usuario creado exitosamente!", "success");
-      navigate("/login");
+      navigate("/");
     } else {
       Swal.fire({
         icon: "error",

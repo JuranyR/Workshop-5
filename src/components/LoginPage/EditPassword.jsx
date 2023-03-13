@@ -28,7 +28,7 @@ const ChangePassword = () => {
     if (user.length) {
       patchUsser(user[0].id, { password: data.password });
       Swal.fire("Perfecto!", "Contraseña actualizada!", "success");
-      navigate("/login");
+      navigate("/");
     } else {
       Swal.fire({
         icon: "error",
